@@ -1,25 +1,29 @@
-S = gets.chomp.reverse
+# frozen_string_literal: true
 
-divide = ['dream', 'dreamer', 'erase', 'eraser'].map(&:reverse)
+def run
+  s = gets.chomp.reverse
 
-can = true
-i = 0
-while i < S.size
-  can2 = false
-  divide.each do |d|
-    if S.slice(i, d.size) == d
-      can2 = true
-      i += d.size
+  divide = %w[dream dreamer erase eraser].map(&:reverse)
+
+  can = true
+  i = 0
+  while i < s.size
+    can2 = false
+    divide.each do |d|
+      if s.slice(i, d.size) == d
+        can2 = true
+        i += d.size
+      end
+    end
+
+    unless can2
+      can = false
+      break
     end
   end
 
-  if !can2
-    can = false
-    break
-  end
+  puts can ? 'YES' : 'NO'
 end
-
-puts can ? 'YES' : 'NO'
 
 # 時間OVER
 # def check(string)

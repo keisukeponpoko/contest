@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 a = gets.to_i # 500円
 b = gets.to_i # 100円
 c = gets.to_i # 50円

@@ -1,7 +1,11 @@
-N = gets.to_i
-routes = N.times.map{ gets.chomp.split(" ").map(&:to_i) }
+# frozen_string_literal: true
 
-start_t, start_x, start_y = [0, 0, 0]
+N = gets.to_i
+routes = N.times.map { gets.chomp.split(' ').map(&:to_i) }
+
+start_t = 0
+start_x = 0
+start_y = 0
 can = true
 routes.each do |route|
   t, x, y = route
@@ -15,7 +19,9 @@ routes.each do |route|
     break
   end
 
-  start_t, start_x, start_y = [t, x, y]
+  start_t = t
+  start_x = x
+  start_y = y
 end
 
 puts can ? 'Yes' : 'No'
