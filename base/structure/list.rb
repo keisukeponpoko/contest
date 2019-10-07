@@ -2,7 +2,6 @@
 
 # COPY FROM https://github.com/ruby/rake/blob/master/lib/rake/linked_list.rb
 module Rake
-
   # Polylithic linked list structure used to implement several data
   # structures in Rake.
   class LinkedList
@@ -28,6 +27,7 @@ module Rake
       current = self
       while !current.empty? && !other.empty?
         return false if current.head != other.head
+
         current = current.tail
         other = other.tail
       end
@@ -36,20 +36,20 @@ module Rake
 
     # Convert to string: LL(item, item...)
     def to_s
-      items = map(&:to_s).join(", ")
+      items = map(&:to_s).join(', ')
       "LL(#{items})"
     end
 
     # Same as +to_s+, but with inspected items.
     def inspect
-      items = map(&:inspect).join(", ")
+      items = map(&:inspect).join(', ')
       "LL(#{items})"
     end
 
     # For each item in the list.
     def each
       current = self
-      while !current.empty?
+      until current.empty?
         yield(current.head)
         current = current.tail
       end
@@ -83,7 +83,7 @@ module Rake
 
     protected
 
-    def initialize(head, tail=EMPTY)
+    def initialize(head, tail = EMPTY)
       @head = head
       @tail = tail
     end
@@ -97,8 +97,7 @@ module Rake
     class EmptyLinkedList < LinkedList
       @parent = LinkedList
 
-      def initialize
-      end
+      def initialize; end
 
       def empty?
         true
