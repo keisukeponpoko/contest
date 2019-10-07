@@ -10,5 +10,5 @@ questions.each do |qu|
 end
 
 points.each do |_, point|
-  puts (K - Q + point).positive? ? 'Yes' : 'No'
+  puts((K - Q + point).positive? ? 'Yes' : 'No')
 end
