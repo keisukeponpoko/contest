@@ -12,6 +12,22 @@ template<class T>bool chmax(T &a, const T &b) { if (a<b) { a=b; return 1; } retu
 template<class T>bool chmin(T &a, const T &b) { if (b<a) { a=b; return 1; } return 0; }
 int gcd(int a,int b) { return b ? gcd(b,a%b) : a; }
 
+// 動的計画法
+int dplan(vector<int> list) {
+  int size = list.size();
+
+  vector<int> dp(size);
+  rep(i, size) dp[i] = INF;
+  dp[0] = 0;
+
+  rep(i, size) {
+    chmin(dp[i], dp[i - 1] + abs(list[i] - list[i - 1]));
+    if (i > 1) chmin(dp[i], dp[i - 2] + abs(list[i] - list[i - 2]));
+  }
+
+  return dp[size - 1];
+}
+
 // もらうDP
 int main()
 {
@@ -20,16 +36,9 @@ int main()
 
   int a[n];
   rep(i, n) scn(a[i]);
+  vector<int> vec(n);
+  rep(i, n) vec[i] = a[i];
 
-  int dp[n];
-  rep(i, n) dp[i] = INF;
-  dp[0] = 0;
-
-  rep(i, n - 1) {
-    chmin(dp[i], dp[i-1] + abs(a[i] - a[i-1]));
-    chmin(dp[i], dp[i-2] + abs(a[i] - a[i-2]));
-  }
-
-  pri(dp[n - 1]);
+  pri(dplan(vec));
   return 0;
 }
