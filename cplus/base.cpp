@@ -20,14 +20,16 @@ int main()
   scn(n);
 
   int a[n];
-  rep(i, n) scn(a[n]);
+  rep(i, n) scn(a[i]);
 
   pri(n);
   return 0;
 }
 
 // 最大公約数
-int gcd(int a,int b) { return b ? gcd(b,a%b) : a; }
+ll gcd(ll a,ll b) { return b ? gcd(b, a%b) : a; }
+// 最小公倍数
+ll lcm(ll a, ll b) { return a / gcd(a, b) * b;}
 
 // 二分探索
 int bs(int target, vector<int> list) {
@@ -57,3 +59,39 @@ int dplan(vector<int> list) {
 
   return dp[size - 1];
 }
+
+// 繰り返し自乗法（n^p を計算する）
+// だが、MODがある場合が多いので、mod.cppのライブラリを利用し、加減乗除をした方が良い。
+ll powpow(ll n, ll p) {
+  if (p == 0) return 1;
+  ll x = powpow(n, p / 2);
+  x = x * x;
+  if (p % 2 == 1) x = x * n;
+  return x;
+}
+
+// 組み合わせ nCk
+// だが、MODがある場合が多いので、mod.cppのライブラリを利用、加減乗除をした方が良い。
+ll choose(int n, int a) {
+  ll x = 1;
+  ll y = 1;
+  rep(i, a) {
+    x = x * (n - i); // 分子はn-i
+    y = y * (i + 1); // 分母はaの階乗
+  }
+
+  return x * powpow(y, 10000007 - 2);
+}
+
+
+// フェルマーの小定理
+
+
+
+// 最短経路問題
+
+
+// DFS（深さ優先探索）
+
+
+// BFS（幅優先探索）
