@@ -1,7 +1,5 @@
 // https://github.com/atcoder-live/library/blob/master/comb.cpp
-
 // combination mod prime 利用には、mod.cpp が必要になります。
-// https://www.youtube.com/watch?v=8uowVvQ_-Mo&feature=youtu.be&t=1619
 struct combination {
   vector<mint> fact, ifact;
   combination(int n):fact(n+1),ifact(n+1) {

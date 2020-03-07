@@ -1,7 +1,6 @@
 // MODの加減乗除、を行う
-// https://youtu.be/L8grWxBlIZ4?t=9858
-// https://youtu.be/ERZuLAxZffQ?t=4807 : optimize
-// https://youtu.be/8uowVvQ_-Mo?t=1329 : division
+// https://github.com/atcoder-live/library/blob/master/mint.cpp
+
 const int mod = 1000000007;
 struct mint {
   long long x; // typedef long long ll;
