@@ -1,5 +1,3 @@
-// できない...
-
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -12,21 +10,13 @@ template<class T>bool chmin(T &a, const T &b) { if (b<a) { a=b; return 1; } retu
 
 int main()
 {
-  int N, P;
-  string S;
-  cin >> N >> P >> S;
+  int n, m;
+  cin >> n >> m;
 
-  int cnt = 0;
-  for (int i = 0; i < N; i++) {
-    for (int j = i; j < N; j++) {
-      string str = S;
-      string num = str.substr(i, j - i + 1);
-      ll number = stoll(num);
-      if (number % P == 0) cnt += 1;
-    }
-  }
+  int n_ans = n * (n - 1) / 2;
+  int m_ans = m * (m - 1) / 2;
 
-  cout << cnt << endl;
+  cout << n_ans + m_ans << endl;
 
   return 0;
 }

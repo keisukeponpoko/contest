@@ -8,18 +8,6 @@ const ll INF = ll(1e9) + 1;
 template<class T>bool chmax(T &a, const T &b) { if (a<b) { a=b; return 1; } return 0; }
 template<class T>bool chmin(T &a, const T &b) { if (b<a) { a=b; return 1; } return 0; }
 
-int main()
-{
-  int n;
-  scn(n);
-
-  int a[n];
-  rep(i, n) scn(a[i]);
-
-  pri(n);
-  return 0;
-}
-
 // 最大公約数
 ll gcd(ll a,ll b) { return b ? gcd(b, a%b) : a; }
 // 最小公倍数
