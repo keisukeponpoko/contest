@@ -17,6 +17,7 @@
     "ostream": "cpp",
     "iosfwd": "cpp",
     "iterator": "cpp",
-    "filesystem": "cpp"
+    "filesystem": "cpp",
+    "ratio": "cpp"
   }
 }
