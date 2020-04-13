@@ -18,6 +18,7 @@
     "iosfwd": "cpp",
     "iterator": "cpp",
     "filesystem": "cpp",
-    "ratio": "cpp"
+    "ratio": "cpp",
+    "numeric": "cpp"
   }
 }
